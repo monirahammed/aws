@@ -9,7 +9,7 @@ The name of  the new EC2 instances will have same name as the Tag Value of "elas
 Thus we can understand a particular EC2 instance created by which  elasticbeanstalk configuration & name of that EC2 instance.
 
 
-## How this python script (setEC2InstanceName.py) works:
+### How this python script (setEC2InstanceName.py) works:
 
 This script takes the name of aws region for which we need to set the Name of EC2 Instance and another argument --dryrun (optional).
 if we mention --dryrun , then it will show what the script will do . But it will not make any actual changes to the EC2 instances.  
@@ -39,20 +39,20 @@ optional arguments:
 
 
 
-# Check awsEC2CheckNTPConfig.py  File 
+## Check awsEC2CheckNTPConfig.py  File 
 
-## Objective:  When a new EC2 instance is created, it has got a default NTP config file and NTP servers is the default one. We want the NTP server name (time sync server) to be as per our requirement. 
+### Objective:  When a new EC2 instance is created, it has got a default NTP config file and NTP servers is the default one. We want the NTP server name (time sync server) to be as per our requirement. 
 
 
 Prerequisite: 
 
-Make sure you have added the aws_access_key_id and aws_secret_access_key via  aws cli config command. 
-you need to add required keys using $ssh-add <keys>  
-run  the script using pythong awsEC2CheckNTPConfig.py
-Always refer the updated script, below attached script may not be always updated one.  
+    Make sure you have added the aws_access_key_id and aws_secret_access_key via  aws cli config command. 
+    you need to add required keys using $ssh-add <keys>  
+    run  the script using pythong awsEC2CheckNTPConfig.py
+    Always refer the updated script, below attached script may not be always updated one.  
     
 
-** How to Works:   The python program takes a list of AWS region names and for each region : **
+### How it Works:   The python program takes a list of AWS region names and for each region :
 
 - 1 Get all the running EC2 instances name, ip address.
 - 2 As most of the EC2 has got private IP address and we have some restricted security group for those EC2 , we need to do ssh to bastion servers.
