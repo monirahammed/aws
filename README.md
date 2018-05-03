@@ -1,6 +1,6 @@
 # aws Automation Scripts : 
 
-## setEC2InstanceName.py: Add Name TAG to EC2 Instances via Automation Script 
+## 1) setEC2InstanceName.py: Add Name TAG to EC2 Instances via Automation Script 
 
 
 ### During creation of new EC2 instance via auto scaling, we can see the new instances do not have any name TAG.
@@ -37,9 +37,9 @@ optional arguments:
 --dryrun default value is False, for just dryrun enter --dryrun
 --printIP default value is False, if you just want to print  PrivateIP and Name Tag use --printIP
 
+----------------------------------------------------------------------------------------------------------------------------
 
-
-## Check awsEC2CheckNTPConfig.py  File 
+## 2)  Check awsEC2CheckNTPConfig.py  File 
 
 ### Objective:  When a new EC2 instance is created, it has got a default NTP config file and NTP servers is the default one. We want the NTP server name (time sync server) to be as per our requirement. 
 
@@ -66,7 +66,7 @@ Prerequisite:
 
 
 --------------------------------------------------------------------------------------------------------------------------
-## Automation: Check AWS Route53 entries, get 'A' records list and send E-mail
+## 3) Automation: Check AWS Route53 entries, get 'A' records list and send E-mail
 
 ### Objectives: 
 
@@ -83,9 +83,9 @@ Prerequisite:
 
 **Our python script will check route53 entries and will send email in below format .  This is for success email .  If there is anything wrong , it will send email with subject "Route53 Status : Error".    Email body will contains detail of error log.** 
 
-##------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------
 
-## Automation:  copy-aws-docker-apache.sh :  Copy All ECS Apache Docker log files into your local machine for a given AWS Region
+## 4) Automation:  copy-aws-docker-apache.sh :  Copy All ECS Apache Docker log files into your local machine for a given AWS Region
 
 
 **Objective: This bash shell script will copy all the Apache ECS container access.log files into your local machine for a given a AWS region.** 
@@ -96,7 +96,7 @@ Prerequisite:
 
 
 
-**How it works: **
+**How it works:**
 
  - Get all the Apache ECS instances for a given AWS region and stored the ip list in  a file.
 
