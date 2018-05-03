@@ -1,4 +1,4 @@
-# aws Automation Scripts 
+# aws Automation Scripts : 
 
 ## setEC2InstanceName.py: Add Name TAG to EC2 Instances via Automation Script 
 
@@ -83,4 +83,26 @@ Prerequisite:
 
 **Our python script will check route53 entries and will send email in below format .  This is for success email .  If there is anything wrong , it will send email with subject "Route53 Status : Error".    Email body will contains detail of error log.** 
 
+##------------------------------------------------------------------------------------------------------------------
+
+## Automation:  copy-aws-docker-apache.sh :  Copy All ECS Apache Docker log files into your local machine for a given AWS Region
+
+
+**Objective: This bash shell script will copy all the Apache ECS container access.log files into your local machine for a given a AWS region. 
+
+
+
+*Make sure you have added all the required keys using the command like $ssh-add .ssh/LPMprod.pem ,(machine from where you are running the script)  for ssh-add error, please see the below comment section.
+
+
+
+**How it works: 
+
+ - Get all the Apache ECS instances for a given AWS region and stored the ip list in  a file.
+
+> $aws ec2 describe-instances --region eu-central-1 --query "Reservations[].Instances[].[PrivateIpAddress,PublicIpAddress,Platform,Tags[?Key=='Name'].Value|[0],State.Name]" --output text|grep -v terminated |grep -i apache |cut -f 1 > /root/log_copy/eu-central-1_apache_2018_01_15_01_43_52.lst
+- get the container id from each apache EC2 instances. 
+- copy the apache access.log file from docker container to docker host machine using docker cp command
+- Now using scp with ssh proxy copy the log file from docker host machine to your own local machine
+- Delete the log files from docker host machine.  Note we are copying the log file from docker container to docker host machine as we can not copy the log files from docker container to our local machine
 
