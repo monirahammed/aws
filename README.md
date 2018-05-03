@@ -88,15 +88,15 @@ Prerequisite:
 ## Automation:  copy-aws-docker-apache.sh :  Copy All ECS Apache Docker log files into your local machine for a given AWS Region
 
 
-**Objective: This bash shell script will copy all the Apache ECS container access.log files into your local machine for a given a AWS region. 
+**Objective: This bash shell script will copy all the Apache ECS container access.log files into your local machine for a given a AWS region.** 
 
 
 
-*Make sure you have added all the required keys using the command like $ssh-add .ssh/LPMprod.pem ,(machine from where you are running the script)  for ssh-add error, please see the below comment section.
+*Make sure you have added all the required keys using the command like $ssh-add .ssh/LPMprod.pem ,(machine from where you are running the script)  for ssh-add error, please see the below comment section.*
 
 
 
-**How it works: 
+**How it works: **
 
  - Get all the Apache ECS instances for a given AWS region and stored the ip list in  a file.
 
