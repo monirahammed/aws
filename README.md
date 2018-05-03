@@ -64,3 +64,23 @@ Prerequisite:
 - 6 The program sends an e-mail to concern users about the success/error with list of servers name that required NTP config file modification. 
 
 
+
+--------------------------------------------------------------------------------------------------------------------------
+## Automation: Check AWS Route53 entries, get 'A' records list and send E-mail
+
+### Objectives: 
+
+ A script to check DNS for xys.abc.docm.com and sap.dpa.coma.com. The script will ensure that there are
+
+- 1) 3 IP addresses for each.
+
+- 2) Each of those addresses is reachable via ping/http.
+
+- 3) verify that those IPs are part of our pool of our EC2 AWS addresses.
+
+- 4) Send e-mail notification. 
+
+
+**Our python script will check route53 entries and will send email in below format .  This is for success email .  If there is anything wrong , it will send email with subject "Route53 Status : Error".    Email body will contains detail of error log.** 
+
+
