@@ -1,4 +1,4 @@
-# aws
+# aws Automation Scripts 
 
 ## setEC2InstanceName.py: Add Name TAG to EC2 Instances via Automation Script 
 
@@ -37,5 +37,30 @@ optional arguments:
 --dryrun default value is False, for just dryrun enter --dryrun
 --printIP default value is False, if you just want to print  PrivateIP and Name Tag use --printIP
 
+
+
+# Check awsEC2CheckNTPConfig.py  File 
+
+## Objective:  When a new EC2 instance is created, it has got a default NTP config file and NTP servers is the default one. We want the NTP server name (time sync server) to be as per our requirement. 
+
+
+Prerequisite: 
+
+Make sure you have added the aws_access_key_id and aws_secret_access_key via  aws cli config command. 
+you need to add required keys using $ssh-add <keys>  
+run  the script using pythong awsEC2CheckNTPConfig.py
+Always refer the updated script, below attached script may not be always updated one.  
+    
+
+** How to Works:   The python program takes a list of AWS region names and for each region : **
+
+- 1 Get all the running EC2 instances name, ip address.
+- 2 As most of the EC2 has got private IP address and we have some restricted security group for those EC2 , we need to do ssh to bastion servers.
+- 3 From bastion servers we do ssh to specific IP address of EC2 instance. 
+> ssh -At -i ~/.ssh/testProd.pem  ec2-user@10.110.10.23 ssh -t -oStrictHostKeyChecking=no  -oConnectTimeout=10 -oBatchMode=yes root@10.10.110.10 cat /etc/ntp.conf > /home/mahammed/works/eu-central-1_10.10.50.215.ntp
+
+- 4 we copy all the the NTP config file in our local machine from where we run the script and name of the copied ntp file is stored as region_name_IP.ntp
+- 5 Our Python program check the contents of each NTP config file and if the NTP server's name is different, we need to modify that server's ntp file.
+- 6 The program sends an e-mail to concern users about the success/error with list of servers name that required NTP config file modification. 
 
 
