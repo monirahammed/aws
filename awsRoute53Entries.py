@@ -270,7 +270,7 @@ def sendEmail(textMsg):
 	from email.MIMEMultipart import MIMEMultipart	
 
 	fromAddress='Moniruddin Ahammed <moniruddin@xyx.com>'
-	#toAddress=['mahammed@lexmark.com','biswdas@lexmark.com', 'ankita.roy@lexmark.com']
+	#toAddress=['mahammed@xyz.com','hussain@abcd.com', 'abcd@abcd.com']
 	msg=MIMEMultipart()
 
 	if route53Error == 1 :
